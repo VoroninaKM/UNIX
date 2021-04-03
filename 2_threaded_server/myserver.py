@@ -5,7 +5,7 @@ import socket
 
 sock = socket.socket()
 print('Запуск сервера.')
-sock.bind(('', 9090))
+sock.bind(('', 9091))
 print('Начало прослушивания порта.')
 sock.listen(1)
 conn, addr = sock.accept()

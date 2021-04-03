@@ -12,12 +12,12 @@ class T(threading.Thread):
     def go(self,conn):
         data = conn.recv(1024)
         if not data:
-            conn.send(("Uuups").encode())  
+            conn.send(("Сообщения нет").encode())  
         else:
-            conn.send(data.encode())
+            conn.send(data.upper())
 
 sock = socket.socket()
-sock.bind(('', 9090))
+sock.bind(('', 9091))
 
 while True:
     lst = [] 

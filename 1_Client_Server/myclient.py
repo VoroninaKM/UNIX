@@ -4,13 +4,18 @@
 import socket
 
 sock = socket.socket()
-sock.connect(('192.168.1.45', 9090))
+sock.connect(('127.0.0.1', 9090))
 print('Соединение с сервером прошло успешно!')
-sock.send('Hello, world!'.encode())
-print('Данные отправлены серверу.')
 
-data = sock.recv(1024)
-print('Прием данных прошел успешно.')
-print(data.decode())
+while True:
+    mas = input()
+    if mas == 'exit':
+        break
+    sock.send(mas.encode())
+    print('Данные отправлены серверу.')
+    data = sock.recv(1024)
+    print('Прием данных прошел успешно.')
+    print(data.decode())
+
 sock.close()
 print('Разрыв соединения с сервером.')
