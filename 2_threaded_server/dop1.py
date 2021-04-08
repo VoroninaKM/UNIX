@@ -1,7 +1,7 @@
 import socket
 from threading import Thread
 
-for port in range(1,10):
+for port in range(9090,9093):
     sock = socket.socket()
     try:
         print(port)

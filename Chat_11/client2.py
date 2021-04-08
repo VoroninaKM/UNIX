@@ -7,8 +7,6 @@ def recv_data(sock):
         data = sock.recv(1024)
         print('\r' + data.decode() + '\n' + 'Вы: ', end='')
 
-
-
 host = '127.0.0.1'
 port = int(input('Введите порт: '))
 
@@ -19,7 +17,6 @@ if not port:
     port = 9093
 else:
     port = int(port)
-
 
 while True:
     nick = input('Введите имя: ')
