@@ -2,6 +2,7 @@ import socket
 import threading
 
 sock = socket.socket()
+print('Сервер запущен.', file=open('log.txt','a'))
 
 while True:
     try:
@@ -18,11 +19,15 @@ def go(conn, addr):
         data = conn.recv(1024)
         if not data:
             break
-        print('Отправка данных клиенту.')
+        print('Отправка данных клиенту.',file=open('log.txt','a'))
         conn.send(data.upper())
+    
     conn.close()
+        
 
 while True:
-	conn, addr = sock.accept()
-	th = threading.Thread(target=go, args=(conn, addr))
-	th.start()
+    conn, addr = sock.accept()
+    th = threading.Thread(target=go, args=(conn, addr))
+    th.start()
+
+    
